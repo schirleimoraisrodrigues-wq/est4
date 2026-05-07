@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terminal Engenharia - redirecionando</title>
+    <script>
+      (function () {
+        var path = window.location.pathname.replace(/\/$/, '');
+        var segments = path.split('/').filter(Boolean);
+        var route = segments.length ? '/' + segments[segments.length - 1] : '/';
+        var validRoutes = ['/', '/login', '/cadastro', '/calendario', '/materias', '/tarefas', '/questoes', '/flashcards', '/perfil'];
+        if (!validRoutes.includes(route)) route = '/';
+        var base = window.location.pathname.slice(0, window.location.pathname.length - (segments[segments.length - 1] || '').length);
+        window.location.replace(window.location.origin + base + '#' + route + window.location.search);
+      }());
+    </script>
+  </head>
+  <body>
+    <p>Redirecionando para o Terminal Engenharia...</p>
+  </body>
+</html>
