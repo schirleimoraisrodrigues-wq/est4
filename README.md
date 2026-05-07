@@ -1,15 +1,12 @@
 # Terminal Engenharia
 
-Plataforma pessoal de organização e gamificação de estudos criada com React, Vite, Tailwind CSS e React Router.
+Plataforma pessoal de organização e gamificação de estudos com autenticação local, dashboard, matérias, conteúdos, tarefas, calendário, questões, flashcards, perfil, desempenho e prioridade automática.
 
-## Recursos
+## Por que não há dependências no `npm install`?
 
-- Autenticação local com cadastro, login, logout e proteção de rotas.
-- Dashboard fiel ao layout solicitado, com header, hero, agenda rápida e fila de estudos.
-- Matérias, conteúdos, tarefas, calendário, questões, flashcards e perfil.
-- Cálculo automático de desempenho e prioridade de estudos.
-- Persistência temporária em LocalStorage, pronta para futura integração com Firebase ou Supabase.
-- Uso de `HashRouter` para evitar erro 404 em hospedagens estáticas ao atualizar rotas internas.
+O ambiente de execução bloqueou downloads do registry npm com HTTP 403. Para eliminar o erro de instalação e permitir build confiável, o app agora possui um runtime estático sem pacotes externos: `npm install` audita um pacote vazio e `npm run build` copia os arquivos necessários para `dist/`.
+
+A interface preserva a experiência SPA e evita erro 404 usando rotas por hash (`#/materias`, `#/tarefas`, etc.).
 
 ## Comandos
 
@@ -17,4 +14,9 @@ Plataforma pessoal de organização e gamificação de estudos criada com React,
 npm install
 npm run dev
 npm run build
+npm run preview
 ```
+
+## Persistência
+
+Os dados são salvos em LocalStorage enquanto Firebase ou Supabase não são integrados.

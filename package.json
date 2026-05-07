@@ -4,20 +4,10 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host 0.0.0.0",
-    "build": "vite build",
-    "preview": "vite preview --host 0.0.0.0"
+    "dev": "node scripts/dev-server.mjs .",
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/dev-server.mjs dist"
   },
-  "dependencies": {
-    "vite": "latest",
-    "react": "latest",
-    "react-dom": "latest",
-    "react-router-dom": "latest",
-    "lucide-react": "latest"
-  },
-  "devDependencies": {
-    "tailwindcss": "^3.4.17",
-    "postcss": "latest",
-    "autoprefixer": "latest"
-  }
+  "dependencies": {},
+  "devDependencies": {}
 }

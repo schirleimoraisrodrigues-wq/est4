@@ -1,4 +1,4 @@
-import { calculatePerformance } from './performance';
+import { calculatePerformance } from './performance.js';
 
 const DAY = 1000 * 60 * 60 * 24;
 const priorityLabels = ['baixa', 'média', 'alta', 'urgente'];
