@@ -15,7 +15,14 @@ const save = (key, value) => localStorage.setItem(key, JSON.stringify(value));
 const state = () => load(appKey, defaultState());
 const setState = (value) => save(appKey, value);
 const session = () => load(authKey, null);
-const route = () => location.hash.replace(/^#\/?/, '') || '/';
+const validRoutes = ['/', '/login', '/cadastro', '/calendario', '/materias', '/tarefas', '/questoes', '/flashcards', '/perfil'];
+const route = () => {
+  const hashRoute = location.hash.replace(/^#/, '');
+  if (hashRoute) return hashRoute.startsWith('/') ? hashRoute : `/${hashRoute}`;
+  const segment = location.pathname.replace(/\/$/, '').split('/').filter(Boolean).pop();
+  const pathRoute = segment ? `/${segment}` : '/';
+  return validRoutes.includes(pathRoute) ? pathRoute : '/';
+};
 const uid = () => crypto.randomUUID ? crypto.randomUUID() : String(Date.now() + Math.random());
 const subjectName = (data, id) => data.subjects.find((s) => s.id === id)?.name || 'Sem matéria';
 

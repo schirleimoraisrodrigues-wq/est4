@@ -6,7 +6,7 @@ Plataforma pessoal de organização e gamificação de estudos com autenticaçã
 
 O ambiente de execução bloqueou downloads do registry npm com HTTP 403. Para eliminar o erro de instalação e permitir build confiável, o app agora possui um runtime estático sem pacotes externos: `npm install` audita um pacote vazio e `npm run build` copia os arquivos necessários para `dist/`.
 
-A interface preserva a experiência SPA e evita erro 404 usando rotas por hash (`#/materias`, `#/tarefas`, etc.) e arquivos de fallback para hospedagens estáticas (`404.html`, `_redirects`, `vercel.json`, `netlify.toml` e `firebase.json`).
+A interface preserva a experiência SPA e evita erro 404 usando rotas por hash (`#/materias`, `#/tarefas`, etc.), leitura de `pathname` quando a hospedagem reescreve para `index.html`, páginas estáticas geradas para cada rota direta (`dist/materias/index.html`, `dist/login/index.html`, etc.) e arquivos de fallback para hospedagens estáticas (`404.html`, `_redirects`, `vercel.json`, `netlify.toml` e `firebase.json`).
 
 ## Comandos
 
